@@ -4,7 +4,7 @@ Cisco XDR AI Assisted Investigations (DEVNET-2387 at Cisco Live US 2025)
 ## What does it do?
 This project allows you to add functionality to XDR that will 
 - provide the capability for you to enter your own custom reference links to observables in the pivot menu (stage 1)
-- provide the ability to have those lookups done for you and the results parsed and diplsayed in the pivot menu without you having to click on them (stage 2)
+- provide the ability to have those lookups done for you and the results parsed and displayed in the pivot menu without you having to click on them (stage 2)
 - provide the ability, when responding to an incident, to send those parsed reference lookup results for all observables in the incident, to a generative AI engine for analysis and guidance (the workflow)
 
 ## Included files: 
