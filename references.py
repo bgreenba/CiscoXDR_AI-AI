@@ -8,7 +8,7 @@ class Config:
           "description": this is what will appear in the pivot menu entry hoverover
           "url": this is the link the user will be referred to if they click
           "id-string": this is a unique identifier for the lookup that is used to track the responses. To this string the server will append the observable type and the observable value.
-          "obs_types": the list of observable types on which this reference should be returned. The string "any" matches all possible current and future types. 
+          "obs_types": the list of observable types on which this reference should be returned. The string "all" matches all possible current and future types. 
           }
 	"""
 	REFERENCES=[
@@ -109,7 +109,7 @@ class Config:
 	      'title':'BraveLLM query',
 	      'description':"BraveLLM query for {obs_value}",
 	      'url':"'https://search.brave.com/search?q=I am a security researcher and I have come across the {obs_type} {obs_value}. Can you please provide me with more information about it?&source=llmSuggest&summary=1'",
-	      'obs_types':["any"]
+	      'obs_types':["all"]
 	  }
 	]
 
