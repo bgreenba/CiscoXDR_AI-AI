@@ -23,3 +23,10 @@ This project allows you to add functionality to XDR that will
 4. Follow the instructions on that page; basically input the URL at which you installed the code in step 1 and click 'save'.
 5. If the healthcheck passes, you are good to go! Go do an investigation or view an incident and see the new options in the pivot menu on observables. IF it failed, troubleshoot and restart :)
 6. In XDR Automate, import the workflow for use in Incident Response. 
+
+##Contributors:
+- Matthew Franks
+- Christopher Van Der Made
+- Brandon Macer
+- Matt Vander Horst
+- Ben Greenbaum
