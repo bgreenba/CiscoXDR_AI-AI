@@ -1,5 +1,5 @@
 # CiscoXDR_AI-AI
-Cisco XDR AI Assisted Investigations (DEVNET-2387 at Cisco Live US 2025)
+Cisco XDR AI Assisted Investigations **(DEVNET-2387 at Cisco Live US 2025)**
 
 ## What does it do?
 This project allows you to add functionality to XDR that will 
@@ -24,7 +24,7 @@ This project allows you to add functionality to XDR that will
 5. If the healthcheck passes, you are good to go! Go do an investigation or view an incident and see the new options in the pivot menu on observables. IF it failed, troubleshoot and restart :)
 6. In XDR Automate, import the workflow for use in Incident Response. 
 
-## Adding Custom Entries in references.py
+## Adding Custom Entries in references.py for stage 1
 
 The `references.py` file allows you to define custom entries for observables. Each entry in the list should be a JSON dict with the following structure:
 
@@ -39,7 +39,6 @@ The `references.py` file allows you to define custom entries for observables. Ea
 ```
 
 ### Fields Description:
-
 - **title**: A string representing the title of the entry.
 - **description**: A string describing the purpose of the entry.
 - **url**: The base URL to be used for the entry. The observable's value will be appended to this URL.
@@ -59,8 +58,13 @@ Observable types are not prescribed or limited; anything goes. However, the foll
 - `url`
 - `email`
 - `mac_address`
+ 
+## Adding Custom Entries in references.py for stage 2
+The stage 2 app offers the choice of having the reference results be fetched and parsed, or simply linked to in the menu. 
+- To have the link appear in the menu only, use the same format as above to create entries in the `custom_pivots` list.
+- To have the link be fetched by the server and parsed to create the menu items dynamically, write a function to do so (eg `get_certificate_info()`) and then call that function from the appropriate observable type's `if` statement in `refer_observables`. If there isn't an `if` statement for the desired observable type, simply add one. 
 
-##Contributors:
+## Contributors:
 - Matthew Franks
 - Christopher Van Der Made
 - Brandon Macer
