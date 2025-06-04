@@ -24,6 +24,42 @@ This project allows you to add functionality to XDR that will
 5. If the healthcheck passes, you are good to go! Go do an investigation or view an incident and see the new options in the pivot menu on observables. IF it failed, troubleshoot and restart :)
 6. In XDR Automate, import the workflow for use in Incident Response. 
 
+## Adding Custom Entries in references.py
+
+The `references.py` file allows you to define custom entries for observables. Each entry in the list should be a JSON dict with the following structure:
+
+```json
+{
+  "title": "<Title of the entry>",
+  "description": "<Description of the entry>",
+  "url": "<Base URL for the entry>",
+  "type": ["<Type of observable>, <another type of observable>"],
+  "id-string": "<the identification string prefix that XDR will use to handle this specific reference link in the menu">
+}
+```
+
+### Fields Description:
+
+- **title**: A string representing the title of the entry.
+- **description**: A string describing the purpose of the entry.
+- **url**: The base URL to be used for the entry. The observable's value will be appended to this URL.
+- **type**: A list of observable types that this entry applies to. Use `"all"` to apply to all types.
+- **id-string**:  A unique identifier prefix for this response object, that is used to track each of the responses. To this string, the server will append the observable type and the observable value to make it unique to the investigation.
+
+### Available Types:
+
+Observable types are not prescribed or limited; anything goes. However, the following observable types are broadly supported by XDR integrations, in addition to this server's "all" wildcard:
+
+- `ip`
+- `domain`
+- `sha1`
+- `sha256`
+- `md5`
+- `hostname`
+- `url`
+- `email`
+- `mac_address`
+
 ##Contributors:
 - Matthew Franks
 - Christopher Van Der Made
