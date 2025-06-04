@@ -14,7 +14,7 @@ This project allows you to add functionality to XDR that will
 |app-stage1-pivotrefs.py|A simple reference server that provides links for observable lookups|
 |references.py|The list of reference pivots and details that are used by stage1 above|
 |app-stage2-prefetchers.py|A reference server that creates the lookup link and then fetches, parses, and returns the content|
-|AIAI - [Analyze Incident Observables Metadata] Workflow.json|The workflow that takes the lookup results from stage 2 and submits them to the AI engine|
+|AIAI - [Analyze Incident Observables Metadata] Workflow.json|The workflow that takes the lookup results from stage 2 and creates the worklog entry then submits them to the AI engine|
 
 ## Deployment Instructions
 1. Deploy the web application of your choice (or both) on a webserver. These were developed on and for Apache2 running [mod_wsgi](https://pypi.org/project/mod-wsgi/) and the [Flask](https://flask.palletsprojects.com/en/stable/) framework.  YMMV on anytihng else.
