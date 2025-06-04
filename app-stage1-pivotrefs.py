@@ -38,9 +38,8 @@ def refer_observables():
         json: A JSON object containing information about the observables.
     """
     observables = request.get_json()
-#    print("/refer/observables")
-#    print(json.dumps(observables, indent=4))
 
+    #init output
     relay_output = []
 
     # Check for entries in custom_pivots
@@ -60,6 +59,11 @@ def refer_observables():
          'description': description,
          'url': url
          })
+
+    return jsonify({'data': relay_output})
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
     return jsonify({'data': relay_output})
 
