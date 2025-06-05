@@ -16,7 +16,7 @@ class Config:
 	  {
    	      "title": "Google Search",
 	      "description": "Search Google for {obs_value}",
-	      "url": "https://www.google.com/search?q=",
+	      "url": "https://www.google.com/search?q={obs_value}",
 	      "id-string": "aiai-nollm-google",
 	      "obs_types": ["all"]
 	  },
