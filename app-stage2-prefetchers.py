@@ -13,15 +13,15 @@ virustotal_api_key = os.getenv("VIRUSTOTAL_API_KEY")
 custom_pivots=[
   {
     "title": "Google Search",
-    "description": "Search Google for {observable_value}",
-    "url": "https://www.google.com/search?q=",
+    "description": "Search Google for {obs_value}",
+    "url": "https://www.google.com/search?q={obs_value}",
     "id-prefix": "aiai-nollm-google",
     "type": ["all"]
   },
   {
     "title": "DuckDuckGo Search",
-    "description": "Search DuckDuckGo for {observable_value}",
-    "url": "https://duckduckgo.com/?q=",
+    "description": "Search DuckDuckGo for {obs_value}",
+    "url": "https://duckduckgo.com/?q={obs_value}",
     "id-prefix": "aiai-nollm-duckduckgo",
     "type": ["ip", "domain"]
   }
@@ -376,9 +376,6 @@ def refer_observables():
         json: A JSON object containing information about the observables.
     """
     observables = request.get_json()
-    print("/refer/observables")
-    print(json.dumps(observables, indent=4))
-
     relay_output = []
 
     # Check for entries in custom_pivots
@@ -389,7 +386,7 @@ def refer_observables():
         relay_output.append({
          'id': f"{item['id-prefix']}-{observable['type']}-{observable['value']}",
          'title': item['title'],
-         'description': f"{item['description']}".format(observable_value=observable['value']),
+         'description': f"{item['description']}".format(obs_value=observable['value'], obs_type=observable['type']),
          'url': f"{item['url']}{observable['value']}"
          })
     for observable in observables:
