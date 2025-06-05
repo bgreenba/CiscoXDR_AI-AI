@@ -39,11 +39,14 @@ The `references.py` file allows you to define custom entries for observables. Ea
 ```
 
 ### Fields Description:
-- **title**: A string representing the title of the entry.
-- **description**: A string describing the purpose of the entry.
-- **url**: The base URL to be used for the entry. The observable's value will be appended to this URL.
-- **type**: A list of observable types that this entry applies to. Use `"all"` to apply to all types.
-- **id-string**:  A unique identifier prefix for this response object, that is used to track each of the responses. To this string, the server will append the observable type and the observable value to make it unique to the investigation.
+- `title`: A string representing the title of the entry.
+- `description`: A string describing the purpose of the entry.
+- `url`: The base URL to be used for the entry. The observable's value will be appended to this URL.
+- `type`: A list of observable types that this entry applies to. Use `"all"` to apply to all types.
+- `id-string`:  A unique identifier prefix for this response object, that is used to track each of the responses. To this string, the server will append the observable type and the observable value to make it unique to the investigation.
+
+### Variables:
+In the description and url fields, you can use `{obs_type}` to refer to the observable type, and `{obs_value}` to refer to the observable value. For example, if for an investigation of the IP _1.2.3.4_ you want to return a link like `http://iplookup.foo/ip/1.2.3.4` and from the same reference source a lookup for the domain _bad.biz_ should be `https://iplookup.foo/domain/bad.biz`, then the string for the url field should be `https://iplookup.biz/{obs_type}/{obs_value}`
 
 ### Available Types:
 
@@ -62,7 +65,7 @@ Observable types are not prescribed or limited; anything goes. However, the foll
 ## Adding Custom Entries in references.py for stage 2
 The stage 2 app offers the choice of having the reference results be fetched and parsed, or simply linked to in the menu. 
 - To have the link appear in the menu only, use the same format as above to create entries in the `custom_pivots` list.
-- To have the link be fetched by the server and parsed to create the menu items dynamically, write a function to do so (eg `get_certificate_info()`) and then call that function from the appropriate observable type's `if` statement in `refer_observables`. If there isn't an `if` statement for the desired observable type, simply add one. 
+- To have the link be fetched by the server and parsed to create the menu items dynamically, write a function to do so (eg `get_certificate_info()`) and then call that function from the appropriate observable type's `if` statement in `refer_observables()`. If there isn't an `if` statement for the desired observable type, simply add one. 
 
 ## Contributors:
 - Matthew Franks
