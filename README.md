@@ -17,7 +17,7 @@ This project allows you to add functionality to XDR that will
 |AIAI - [Analyze Incident Observables Metadata] Workflow.json|The workflow that takes the lookup results from stage 2 and creates the worklog entry then submits them to the AI engine|
 
 ## Deployment Instructions
-1. Deploy the web application of your choice (or both) on a webserver. These were developed on and for Apache2 running [mod_wsgi](https://pypi.org/project/mod-wsgi/) and the [Flask](https://flask.palletsprojects.com/en/stable/) framework.  YMMV on anytihng else.
+1. Deploy the web application of your choice (or both) on a webserver. These were developed on and for Apache2 running [mod_wsgi](https://pypi.org/project/mod-wsgi/) and the [Flask](https://flask.palletsprojects.com/en/stable/) framework.  Your results may vary on anything else.
 2. Upload the AIAI-moduleType.json file contents as a POST to the https://visibility.amp.cisco.com/iroh/iroh-int/module-type API endpoint (or regional equivalent) to put the module in your private catalog.
 3. Find the integration in your catalog and click the + button to open the installation and configuration page
 4. Follow the instructions on that page; basically input the URL at which you installed the code in step 1 and click 'save'.
